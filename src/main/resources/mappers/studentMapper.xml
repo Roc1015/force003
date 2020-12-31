@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="com.lunz.imai.mapper.sys.AppUserMapper">-->
+<mapper namespace="com.example.demo.mapper.StudentMapper">
+
+    <select id="getStudentList" resultType="com.example.demo.pojo.Student">
+        select * from School.Student;
+    </select>
+
+    <select id="getStudentById" resultType="com.example.demo.pojo.Student">
+        select * from School.Student where id = #{id}
+    </select>
+
+    <insert id="addStudent" parameterType="com.example.demo.pojo.Student">
+        insert into School.Student (id,name,password) value (#{id},#{name},#{password})
+    </insert>
+
+    <update id="updateStudentById" parameterType="com.example.demo.pojo.Student">
+        update School.Student set name  = #{name},password =#{password} where id =#{id}
+    </update>
+
+    <delete id="deleteStudentById" parameterType="int">
+        delete from School.Student where id =#{id}
+    </delete>
+</mapper>
